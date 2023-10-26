@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-smoothing: grayscale;
+
+    font-family: "Mulish", sans-serif;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --color-base-white: hsla(0, 0%, 100%, 1);
+    --color-base-blue-200: hsla(195, 46%, 40%, 1);
+    --color-base-blue-400: hsla(195, 91%, 25%, 1);
+    --color-text: hsla(240, 6%, 8%, 1);
+    --color-base-white-200: hsl(196, 100%, 98%);
+}
+
+body {
+    background-color: var(--color-base-white);
+    height: 100vh;
+    width: 100%;
+}
+
+#page {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100vh;
+    width: clamp(40rem, 50rem, 112rem);
+}
+
+.container {
+    width: min(112rem, 100%);
+    margin: 0 auto;
+}
+
+main {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 2.6rem;
+    padding: 1.2rem 2.8rem;
+    background: var(--color-base-blue-400);
+}
+
+header form {
+    flex: 1;
+}
+
+nav img {
+    /* ta toda cagada */
+    width: 3rem;
+    height: 3rem;
+}
+
+.input-wrapper label {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1.2rem;
+
+    background-color: var(--color-base-blue-200);
+    border: 0;
+    border-radius: 0.4rem;
+
+    color: var(--color-base-white);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.input-wrapper input::placeholder {
+    color: var(--color-base-white);
+}
+
+.avatar {
+    height: 4.2rem;
+    width: 4.2rem;
+    border-radius: 100%;
+}
+
+main img {
+    border-radius: 5px;
+
+    --delay: 0.4s;
+    animation: appear 0.4s var(--delay) backwards;
+}
+
+.content {
+    padding: 0 16px;
+}
+
+.cat {
+    width: 100%;
+}
+
+h1 {
+    margin-top: 3.2rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    --startY: -100%;
+    animation: move 0.4s;
+}
+
+.like img,
+.dislike img {
+    width: 16px;
+    height: 16px;
+}
+
+.like,
+.dislike {
+    padding: 1.2rem;
+    background: var(--color-base-blue-400);
+    border-radius: 50%;
+    border: none;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1.6rem;
+
+    --delay: 0.4s;
+    animation: appear 0.4s var(--delay) backwards;
+}
+
+.like {
+    margin-right: 1.2rem;
+}
+
+.like:hover {
+    transform: scale(1.2);
+}
+
+.dislike:hover {
+    transform: scale(1.2);
+}
+
+main p {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-text);
+
+    --startY: -100%;
+    animation: move 0.4s;
+}
+
+h2 {
+    color: var(--color-text);
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 3.2rem;
+}
+
+.sidebar {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3.2rem;
+    width: 100%;
+
+    margin-top: 3.2rem;
+    margin-bottom: 4rem;
+}
+
+h3 {
+    color: var(--color-text);
+    font-size: 18px;
+    font-weight: 700;
+    height: 1.3rem;
+}
+
+.text {
+    display: flex;
+    gap: 1.6rem;
+    flex-direction: column;
+    height: 100%;
+}
+
+.article {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1.6rem;
+    height: 8.4rem;
+    margin: 7px 0;
+
+    --delay: 0.4s;
+    animation: appear 0.4s var(--delay) backwards;
+}
+
+.article img {
+    width: 15rem;
+    height: 8.4rem;
+}
+
+.article img:hover {
+    transform: scale(1.2);
+}
+
+footer {
+    background: var(--color-base-blue-200);
+}
+
+footer p {
+    text-align: center;
+    padding: 1.6rem;
+    font-weight: 600;
+    color: var(--color-base-white);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes move {
+    from {
+        transform: translateY(var(--startY));
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        background: var(--color-base-white-200);
+    }
+
+    .cat {
+        height: 40rem;
+    }
+
+    .container {
+        display: flex;
+        gap: 32px;
+        margin-top: 4.2rem;
+        margin-bottom: 4.2rem;
+    }
+
+    .content {
+        padding: 0;
+        width: 100%;
+    }
+
+    .conleft {
+        width: 100%;
+    }
+
+    header {
+        padding: 1.2rem 120px;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    .line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3.2rem;
+        margin-bottom: 3.2rem;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .like,
+    .dislike {
+        margin-top: 0;
+    }
+
+    .conright {
+        width: 55%;
+    }
+}
